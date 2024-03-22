@@ -609,7 +609,7 @@
 // }
 
 // function squae (element){
-//     return element = 25 ;
+//   return element = 25 ;
 // }
 // const originalArray = array;
 // const filterArray = array.filter(squae);
@@ -618,7 +618,7 @@
 // test(doTheThing([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]), [25, 16, 9, 4, 1]);
 
 
-// // *** yasushi suzuki ***
+// *** yasushi suzuki ***
 
 // 'use strict'
 // // 1行目に記載している 'use strict' は削除しないでください
@@ -689,7 +689,7 @@
 // test(getItemsInRefrigerator(), ["juice"]);
 
 
-// // *** masaharu takeda ***
+// *** masaharu takeda ***
 
 // 'use strict'
 // // 1行目に記載している 'use strict' は削除しないでください
@@ -768,6 +768,10 @@
 // // ここにコードを書きましょう
 // function doTheThing(numArray) {
 //   const resultArray = [];
+//   console.log(numArray.map(x => {
+//     if (x <= 5) return x ** 2;
+// }));
+
 //   numArray.map(x => {
 //       if (x <= 5) resultArray.push(x ** 2);
 //   });
