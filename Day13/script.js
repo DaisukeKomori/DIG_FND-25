@@ -138,6 +138,175 @@
 //       c:1
 //   */
 
+// *** 再提出 ***
+
+// 'use strict'
+// // 1行目に記載している 'use strict' は削除しないでください
+
+// //TDD
+// function test(actual, expected) {
+//   if (JSON.stringify(actual) === JSON.stringify(expected)) {
+//     console.log("OK! Test PASSED.");
+//   } else {
+//     console.error("Test FAILED. Try again!");
+//     console.log("    actual: ", actual);
+//     console.log("  expected: ", expected);
+//     console.trace();
+//   }
+// }
+
+// //1 関数 sayHelloToFriends を宣言してください。
+// /**
+//  * @param {Array<string>} nameOfArr - 友達の名前が入った配列
+//  * @returns {Array<string>} 友達の名前それぞれに `"Hello"` の挨拶が付け加わった文字列を要素に持つ配列
+//  */
+// // ここにコードを書きましょう
+// function sayHelloToFriends (nameOfArr){
+//   const helloFriend = [];
+//   for(const name of nameOfArr){
+//     helloFriend.push(`Hello, ${name}!`);
+//   }
+//   return helloFriend;
+// }
+// console.log("課題1");
+// const friends = ["Mario", "Luigi"];
+// test(sayHelloToFriends(friends), ["Hello, Mario!", "Hello, Luigi!"]);
+
+// // アドバイス： 新たに作成した 文字列（例： "Hello, Mario!"）を、返り値となる新しい配列に追加しましょう。
+// // 以下のテストではこれらの変数を使用します。
+
+// const obj1 = { a: "A" };
+// const obj2 = { a: "A", b: 2 };
+// const obj3 = { a: "A", b: 2, c: "C", d: true };
+// const obj4 = { a: "A", c: "C" };
+
+// //2 関数 filterObjectForStrings を宣言してください。
+// // /**
+// //  * @param {object} オブジェクト
+// //  * @returns {{ [key: string]: string }} 引数で与えられたオブジェクトの、値が文字列であるキーと値のペアだけを持つ新しいオブジェクト。
+// //  */
+// function filterObjectForStrings(object) {
+//   // ここにコードを書きましょう
+//   const result = {};
+//   for (const key in object){
+//     if (typeof object[key] === "string"){
+//       result[key] = object[key];
+//     }
+//   }
+//   return result;
+// }
+// console.log("課題2");
+// test(filterObjectForStrings(obj1), obj1); // 変化なし
+// test(filterObjectForStrings(obj2), obj1); // 値が 2 のペアは含まれていない
+// test(filterObjectForStrings(obj3), obj4); // 値が 2 や true のペアは含まれていない
+
+// //3 関数 filterArrayForStrings を宣言してください。この関数内で、2 問目で作った関数 filterObjectForStrings を使いましょう。
+// /**
+//  * @param {Array<object>} arrayOfObjects - オブジェクトを要素に持つ配列
+//  * @returns {Array<{ [key: string]: string }>} 引数で与えられた配列内の各オブジェクトについて、値が文字列であるキーと値のペアのみを持つ新しいオブジェクトを作成し、そのオブジェクトを含む新しい配列を返り値として返す。
+//  */
+// function filterArrayForStrings(arrayOfObjects) {
+//   // ここにコードを書きましょう.
+//   const resultOfObje = [];
+//   for (const object of arrayOfObjects){
+//     resultOfObje.push(filterObjectForStrings(object));
+//     // どこかで関数 `filterObjectForStrings` を呼びましょう
+//   }
+//   return resultOfObje;
+// }
+
+// console.log("課題3");
+// test(filterArrayForStrings([obj1]), [obj1]); // 変化なし
+
+// // 2 番目の要素から値が 2 のペアは除くこと
+// test(filterArrayForStrings([obj1, obj2]), [obj1, obj1]);
+
+// test(filterArrayForStrings([obj3, obj2, obj1]), [obj4, obj1, obj1]);
+
+// //4 以下のコードを実行する前に何が表示されるか予想してみましょう。
+// //その後、コードを実行して予想が合っていたかどうかを確認してください。
+// //なぜこのような結果になるのか理由を説明してください。
+// const names = ["いち", "に", "さん", "よん"];
+
+// // for (let i = 0; i < 4; i++) {
+// //   for (let j = 0; j < names.length; j++) {
+// //     for (let k = 1; k < 3; k++) {
+// //     console.log(names[j]);
+// //     }
+// //   }
+// // }
+
+// //=>{"いち"x2, "に"x2, "さん"x2, "よん"x2}を4回繰り返す。
+// //説明
+// //①91行目のfor文にて　k=1,2の2回分　names[j]をコンソールに表示する。
+// //※j=0,k=1の時　names[j] = "いち"
+// //　　　k=2の時　names[j] = "いち"
+// //②90行目のfor文にて　j=0,1,2,3の3回分　①を実施する。
+// //⇒①と②により　"いち"x2, "に"x2, "さん"x2, "よん"x2　が表示される。
+// //③89行目のfor文により①+②を　i=0,1,2,3の4回分表示する。
+// //⇒（①+②)×4　つまり（"いち"x2, "に"x2, "さん"x2, "よん"x2)×4が表示される。　
+
+// //5　以下のコードは、複数のネストされたブロック内で同じ変数名 i を使用しています。
+// //コードを実行する前に何が表示されるか予想しましょう。
+// //その後、コードを実行して予想が合っていたかどうかを確認してください。なぜこのような結果になるのか理由を説明してください。
+// // for (let i = 0; i < 2; i++) {
+// //   console.log("a: " + i);
+// //   for (let i = 0; i < 2; i++) {
+// //     console.log("b: " + i);
+// //     for (let i = 0; i < 2; i++) {
+// // 　    console.log("c: " + i);
+// //     }
+// //   }
+// // }
+
+// /* 説明
+// ①109行目のfor文にてi=0のときを考えると…
+//  110行目でa:1をコンソールに表示
+//  111行目のfor文がネストされているので、
+//   ②for文のスコープの中で新たなiを宣言しているので109行目のiとは異なり、説明ではi2とする、
+// 　 i2=0の時、
+// 　 112行目でb:0を表示。
+// 　 113行目でさらにfor文がネストされているので、
+// 　  ③for文のスコープの中で新たなiを宣言しているので109行目のiとは異なり、説明ではi3とする、
+// 　　 i3=0の時、
+// 　　 114行目でc:0を表示。
+// 　　 次に113行目のfor文i3=1の時(2周目)へ進むので、
+// 　　 114行目のc:1を表示し、113行目のfor文は終了。
+//    同様に、111行目のfor文i2=1の時(2周目)へ進むので、
+// 　 112行目のb:1を表示し、③を実施の上、111行目のfor文は終了。
+//  109行目のfor文i=1の時(2周目)へ進むので、
+//  110行目でa:1をコンソールに表示の上②を実施し、109行目のfor文が終了する。
+//  */
+// /*=>101の一周目
+// 　　a:0
+//      103の一周目
+//      b:0
+//       105の一周目 
+// 　    c:0
+// 　　　　105の2周目
+//       c:1
+//     103の2周目
+//     　b:1
+//       105の一周目 
+// 　    c:0、
+// 　　　　105の2周目
+//       c:1
+//    101の2周目
+// 　　a:1
+//      103の一周目
+//      b:0
+//       105の一周目 
+// 　    c:0
+// 　　　　105の2周目
+//       c:1
+//     103の2周目
+//     　b:1
+//       105の一周目 
+// 　    c:0、
+// 　　　　105の2周目
+//       c:1
+//   */
+
 
 // // *** yasushi suzuki ***
 
@@ -221,6 +390,109 @@
 
 // // 4行目のところで、ｊがnamesを1回ずつ選択され、5行目でもう1回4行目の操作が読み込まれ、
 // // そのjとkの操作がiでもう1回読み込まれるから
+
+// *** 再提出 ***
+
+'use strict'
+// 1行目に記載している 'use strict' は削除しないでください
+
+function test(actual, expected) {
+　　if (JSON.stringify(actual) === JSON.stringify(expected)) {
+      console.log("OK! Test PASSED.");
+    } else {
+      console.error("Test FAILED. Try again!");
+      console.log("    actual: ", actual);
+      console.log("  expected: ", expected);
+      console.trace();
+    }
+}
+
+
+  //問1
+/**
+ * @param {Array<string>} ??? - 友達の名前が入った配列
+ * @returns {Array<string>} 友達の名前それぞれに `"Hello"` の挨拶が付け加わった文字列を要素に持つ配列
+ */
+// ここにコードを書きましょう
+
+
+function sayHelloToFriends(arrayOfName){
+　　const newArray = [];
+　　for(const name of arrayOfName){
+　　　　newArray.push(`Hello, ${name}!` );
+    }
+    return newArray;
+}
+
+const friends = ["Mario", "Luigi"];
+test(sayHelloToFriends(friends), ["Hello, Mario!", "Hello, Luigi!"]);
+
+
+const obj1 = { a: "A" };
+const obj2 = { a: "A", b: 2 };
+const obj3 = { a: "A", b: 2, c: "C", d: true };
+const obj4 = { a: "A", c: "C" };
+
+//問2
+
+/**
+ * @param {object} オブジェクト
+ * @returns {{ [key: string]: string }} 引数で与えられたオブジェクトの、値が文字列であるキーと値のペアだけを持つ新しいオブジェクト。
+ */
+function filterObjectForStrings(object) {
+  const newObject = {};
+  for(const key in object){
+　　　　if(typeof object[key] === "string"){
+　　　　　　newObject[key] = object[key];
+　　　　}
+  }
+  return newObject;
+}
+  
+  test(filterObjectForStrings(obj1), obj1); // 変化なし
+  test(filterObjectForStrings(obj2), obj1); // 値が 2 のペアは含まれていない
+  test(filterObjectForStrings(obj3), obj4); // 値が 2 や true のペアは含まれていない
+
+  //問3
+  /**
+ * @param {Array<object>} arrayOfObjects - オブジェクトを要素に持つ配列
+ * @returns {Array<{ [key: string]: string }>} 引数で与えられた配列内の各オブジェクトについて、値が文字列であるキーと値のペアのみを持つ新しいオブジェクトを作成し、そのオブジェクトを含む新しい配列を返り値として返す。
+ */
+function filterArrayForStrings(arrayOfObjects) {
+  const resultOfArray = [];
+  for(const object of arrayOfObjects){
+    resultOfArray.push(filterObjectForStrings(object));
+  }
+  return resultOfArray; 
+}
+
+  
+  test(filterArrayForStrings([obj1]), [obj1]); // 変化なし
+  
+  // 2 番目の要素から値が 2 のペアは除くこと
+  test(filterArrayForStrings([obj1, obj2]), [obj1, obj1]);
+  
+  test(filterArrayForStrings([obj3, obj2, obj1]), [obj4, obj1, obj1]);
+
+//   一番外側のfor文をfor文"i"、その一つ内側のfor文をfor文"j"、最も内側のfor文をfor文"k"とする。
+// まず、for文"j"に着目すると、配列namesの要素を４回繰り返しコンソールに表示させるため、
+// ”いち”から順に1つずつ操作が実行され、「いち、に、さん、よん」がコンソールに表示される。
+// そして、for文"j"の中身では、for文"ｊ"で指定された繰り返し操作を各々2回繰り返し行っているため、
+// ”いち”を2回よみとり、"に”を２回読み取るといった操作が実行される。
+// つまり、「いち×2、に×2、さん×2、よん×2」が2コンソールに表示される。
+// 最後に一番外側のfor文"i"では、for文の中身「いち×2、に×2、さん×2、よん×2」を
+// 4回繰り返しコンソールに表示させる操作が実行されるため、
+// このコードは、「いち×2、に×2、さん×2、よん×2」が4回コンソールに表示される。
+
+// 一番外側のfor文をfor文"a"、その一つ内側のfor文をfor文"b"、最も内側のfor文をfor文"c"とする。
+//  まず最も内側のfor文"c"は、i=0, 1を代入した結果をそれぞれコンソールに表示するため、
+// 「ｃ: 0, c: 1」が表示される。
+// その1つ外側のfor文"b"では、for文"b"のコンソール表示操作が1回実行されるたびに、
+// 「"ｃ": 0, "c": 1」を2回繰り返し実行される。
+// そのため、「b: 0, c: 0, c: 1　b: 1, c: 0, c: 1」となる。
+// 最後に、一番外側のfor文"a"では、for文"a"のコンソール表示操作が1回実行されるたびに
+// 「b: 0, c: 0, c: 1　b: 1, c: 0, c: 1」を2回繰り返し実行されるため、
+// 「a: 0, b: 0, c: 0, c: 1,b: 1, c: 0, c: 1 ,  a: 1, b: 0, c: 0, c: 1,b: 1, c: 0, c: 1」」がコンソールに表示される。
 
 
 // // *** akihiro kaneko ***
@@ -618,6 +890,113 @@
 // }
 // }
 
+// // *** 再提出 ***
+
+// function test(actual, expected) {
+//   if (JSON.stringify(actual) === JSON.stringify(expected)) {
+//       console.log("OK! Test PASSED.");
+//   } else {
+//       console.error("Test FAILED. Try again!");
+//       console.log("    actual: ", actual);
+//       console.log("  expected: ", expected);
+//       console.trace();
+//   }
+//   }
+  
+//   /**
+//   * @param {Array<string>} ??? - 友達の名前が入った配列
+//   * @returns {Array<string>} 友達の名前それぞれに `"Hello"` の挨拶が付け加わった文字列を要素に持つ配列
+//   */
+//   // ここにコードを書きましょう
+//   function sayHelloToFriends(friends) {
+//     const helloFriend = [];
+//     for (const friend of friends) {
+//       const sayHello = `Hello, ${friend}!`;
+//       helloFriend.push(sayHello);
+//     }
+//     return helloFriend;
+//   }
+  
+//   const friends = ["Mario", "Luigi"];
+//   test(sayHelloToFriends(friends), ["Hello, Mario!", "Hello, Luigi!"]);
+  
+  
+//   const obj1 = { a: "A" };
+//   const obj2 = { a: "A", b: 2 };
+//   const obj3 = { a: "A", b: 2, c: "C", d: true };
+//   const obj4 = { a: "A", c: "C" };
+  
+//   /**
+//   * @param {object} オブジェクト
+//   * @returns {{ [key: string]: string }} 引数で与えられたオブジェクトの、値が文字列であるキーと値のペアだけを持つ新しいオブジェクト。
+//   */
+//   function filterObjectForStrings(object) {
+//   // ここにコードを書きましょう
+//   const obj = {};
+//   for (const key in object) {
+//     if (typeof object[key] === "string") {
+//       obj[key] = object[key];
+//       }
+//     }
+//     return obj;
+//   }
+  
+//   test(filterObjectForStrings(obj1), obj1); // 変化なし
+//   test(filterObjectForStrings(obj2), obj1); // 値が 2 のペアは含まれていない
+//   test(filterObjectForStrings(obj3), obj4); // 値が 2 や true のペアは含まれていない
+  
+  
+//   /**
+//   * @param {Array<object>} arrayOfObjects - オブジェクトを要素に持つ配列
+//   * @returns {Array<{ [key: string]: string }>} 引数で与えられた配列内の各オブジェクトについて、値が文字列であるキーと値のペアのみを持つ新しいオブジェクトを作成し、そのオブジェクトを含む新しい配列を返り値として返す。
+//   */
+//   function filterArrayForStrings(arrayOfObjects) {
+//   // ここにコードを書きましょう.
+//   // どこかで関数 `filterObjectForStrings` を呼びましょう
+//     const array1 = [];
+//     for (const obj of arrayOfObjects) {
+//       const arrayobj = filterObjectForStrings(obj);
+//       array1.push(arrayobj);
+//     }
+//     return array1;
+//   }
+  
+//   test(filterArrayForStrings([obj1]), [obj1]); // 変化なし
+  
+//   // 2 番目の要素から値が 2 のペアは除くこと
+//   test(filterArrayForStrings([obj1, obj2]), [obj1, obj1]);
+  
+//   test(filterArrayForStrings([obj3, obj2, obj1]), [obj4, obj1, obj1]);
+  
+  
+//   const names = ["いち", "に", "さん", "よん"];
+  
+//   for (let i = 0; i < 4; i++) {
+//     for (let j = 0; j < names.length; j++) {
+//       for (let k = 1; k < 3; k++) {
+//           console.log(names[j]);
+//       }
+//     }
+//   }
+  
+//   // このコードではiが４回（０から３）、jが４回（0から配列の要素数まで）、kが２回（1から２まで）繰り返されます。
+//   // コンソールにはjにより取り出された配列の要素が表示されている。kでjからの配列の要素を２回ずつ
+//   // 表示し、jで配列の要素を変え、jとkを通過した時点で各値が２回ずつ表示された状態となる。
+//   // 最終的にそれらがiにより4回繰り返されることで、jとkで表示された値が４回分表示されている
+  
+//   for (let i = 0; i < 2; i++) {
+//     console.log("a: " + i);
+//       for (let i = 0; i < 2; i++) {
+//         console.log("b: " + i);
+//           for (let i = 0; i < 2; i++) {
+//             console.log("c: " + i);
+//           }
+//       }
+//   }
+  
+//   // このコードはa部のループで０から１まで繰り返され、b部のループはその度に０から１まで繰り返される。
+//   // c部のループも同様にその度に０から１まで繰り返されるため、a,b,c,c,b,c,c,a,b,c,c,b,c,cの順で
+//   // 表示される
 
 // *** ayumi mori ***
 // 'use strict'
