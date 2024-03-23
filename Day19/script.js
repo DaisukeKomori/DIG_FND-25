@@ -768,10 +768,6 @@
 // // ここにコードを書きましょう
 // function doTheThing(numArray) {
 //   const resultArray = [];
-//   console.log(numArray.map(x => {
-//     if (x <= 5) return x ** 2;
-// }));
-
 //   numArray.map(x => {
 //       if (x <= 5) resultArray.push(x ** 2);
 //   });
