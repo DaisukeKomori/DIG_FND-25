@@ -126,6 +126,10 @@ test(addOneHundred(3), 103); // 103
 test(addOneHundred(0), 100);
 test(typeof addOneHundred, "function");
 
+// 5
+// ①"Hello"<=9行目の関数呼び出し演算子にて、関数sayHelloのconsole.logが実行されて表示する。
+// ②"undefined"<=12行目のconsole.logにて、定数fooには関数sayHelloの戻り値が代入されているが、関数sayHelloにはretrun命令が無く、戻り値がない為undefinedが表示される。
+// ③”Hello,JavaScript”<=13行目のconsole.logにて、定数barに代入された関数sayHelloAndNameの戻り値が表示される
 
 /**
  * #7 -function map- 

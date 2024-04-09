@@ -85,6 +85,14 @@ test(addTwo(70), 72);
 const addOneHundred = add(100);
 test(addOneHundred(3), 103);
 
+// 5
+// （ダッシュボード課題の関数名と上図の関数名が違いますが、ダッシュボードに沿って記述します）
+// 予測：コンソールに "Hello" 、改行して "undefined" 、改行して "Hello, JavaScript" の３つが表示される
+// 説明：(1)const foo = で関数sayHello()の内容であるconsole.log("Hello")が実行され Hello が表示される
+// (2)次に console.log(foo) で foo には sayHello() からの戻り値が無い意の undefined が表示される
+// (3)最後に console.log(bar) で bar には sayHelloAndName("JavaScript") からの戻り値である "Hello, JavaScript" が表示される
+
+
 /** exercises.7　map関数を宣言する
  * @param {Array<number or object>} オブジェクトの場合は要素を数値型とする collection
  * @param {function}　コールバック関数：引数の数値に何らかの演算(ex.+1)をする関数 func
