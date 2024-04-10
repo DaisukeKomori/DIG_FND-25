@@ -65,10 +65,11 @@ function findKeys (obj,target) {
   }
   // console.log(result);
   return result;
+  // return Object.keys(obj).filter(elem => obj[elem] === target);
 }
 findKeys({ a: 1, b: 2, c: 6, d: 4, e: 2 }, 2); // ["b", "e"]
 findKeys({ 1: "h", b: "el", c: "hello", d: "hello", e: "o" }, "hello"); // ["c", "d"]
-
+console.log("#2")
 test(findKeys({ a: 1, b: 2, c: 6, d: 4, e: 2 }, 2),["b", "e"]);
 test(findKeys({ 1: "h", b: "el", c: "hello", d: "hello", e: "o" }, "hello"),["c", "d"]);
 
