@@ -13,7 +13,7 @@ function test(actual, expected) {
 }
 
 /** exercises.1　evenOrOdd関数を宣言する
- * @param {Array<number>}  数値が入った配列 arrayOfNumbers
+ * @param {Array<number>} 数値が入った配列 arrayOfNumbers
  * @param {boolean}  真偽値 boolean
  * @returns {Array<number>} boolean が true の場合は偶数のみの配列を、false の場合は奇数のみの配列を返す
 */
